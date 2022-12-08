@@ -4,7 +4,7 @@ const http = require('http').Server(app);
 const { instrument } = require('@socket.io/admin-ui')
 const io = require('socket.io')(http, {
     cors: {
-        origin: ['https://admin.socket.io', 'http://localhost:3000'],
+        origin: ['https://admin.socket.io', 'http://localhost:3000', 'https://revelio.netlify.app'],
         methods: ["GET", "POST"],
         credentials: true,
     }
@@ -128,8 +128,9 @@ io.on('connection', (socket) => {
     });
 });
 
-http.listen(3030, () => {
-    console.log('server listening on localhost:3030');
+const port = process.env.PORT || 3030
+http.listen(port, () => {
+    console.log('server listening on port');
 });
 
 
