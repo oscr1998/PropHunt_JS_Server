@@ -130,7 +130,7 @@ io.on('connection', (socket) => {
 
 const port = process.env.PORT || 3030
 http.listen(port, () => {
-    console.log('server listening on port');
+    console.log(`server listening on ${port}`);
 });
 
 
